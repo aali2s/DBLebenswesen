@@ -35,18 +35,17 @@ class DBTiereTest {
 
 		Lebenswesen[] igelFeld = new Tier[ 10 ];
 		
-		DBFeldFixgen<Lebenswesen> igelDB = new DBFeldFixgen<Lebenswesen>(igelFeld);
+		DBTiere<Lebenswesen> igelDB = new DBTiere<Lebenswesen>(igelFeld);
 
-		igelDB.appendLast(gf);
+		igelDB.appendLast(a);
 		igelDB.appendLast(k);
 		igelDB.appendLast(i1);
-		assertEquals(3, igelDB.size());
-		assertEquals(k, igelDB.get(2));
-		assertEquals(gf, igelDB.get(1));
-
-		// removing one element from db
-		igelDB.removeLast();
-		assertEquals(2, igelDB.size());
+		igelDB.appendLast(gf);
+		
+		
+		
+		assertEquals(60,igelDB.totalWeight());
+		
 		
 		
 		

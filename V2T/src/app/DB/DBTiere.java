@@ -1,6 +1,5 @@
 package app.DB;
 
-import app.Lebenswesen.Lebenswesen;
 import app.Lebenswesen.Tier;
 
 public class DBTiere<T> extends DBFeldFixgen<T> {
