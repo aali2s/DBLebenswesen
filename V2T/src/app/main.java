@@ -58,16 +58,16 @@ public class main {
 		
 		//Aufgabe11 Testing  
 		// zwei Igel
-		DBgen<Tier> tierDB = new DBFeldFixgen<Tier>(3);
-		Igel i1 = new Igel(12,4);
-		Igel i2 = new Igel(20,15);
-		
-		
-		tierDB.appendLast(i1);
-		tierDB.appendLast(i2);
-		
-		tierDB.appendLast(Tier.getLarger(i1, i2));
-		System.out.println(tierDB.get(1) instanceof Igel);
+//		DBgen<Tier> tierDB = new DBFeldFixgen<Tier>(3);
+//		Igel i1 = new Igel(12,4);
+//		Igel i2 = new Igel(20,15);
+//		
+//		
+//		tierDB.appendLast(i1);
+//		tierDB.appendLast(i2);
+//		
+//		tierDB.appendLast(Tier.getLarger(i1, i2));
+//		System.out.println(tierDB.get(1) instanceof Igel);
 		
 		
 		
