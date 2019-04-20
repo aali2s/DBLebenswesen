@@ -1,6 +1,9 @@
 package app.DB;
 
-public class DBFeldFixgen<T> extends DBgen<T> {
+import app.Lebenswesen.*;
+
+
+public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	T[] dBFeldFixgenArray;
 
 	/**

@@ -1,29 +1,27 @@
 package app.DB;
 
-import app.Lebenswesen.Tier;
+import app.Lebenswesen.*;
 
-public class DBTiere<T> extends DBFeldFixgen<T> {
+
+public class DBTiere<T extends Tier> extends DBFeldFixgen<T> {
 
 	public DBTiere(T[] igelFeld) {
 		super(igelFeld);
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	private int totalWeight = 0;
-
-
 
 	public int totalWeight() {
 
-		T[] listOfTier = getdBFeldFixgenArray();
-		for (T t : listOfTier) {
+		for (T t : this.dBFeldFixgenArray) {
 			Tier lb = (Tier) t;
-			totalWeight += lb.size();
+			if (t != null)
+				totalWeight += lb.weight();
 
 		}
 		return totalWeight;
 	}
 
 }
+

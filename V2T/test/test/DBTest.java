@@ -51,9 +51,9 @@ class DBTest {
 		Igel i1 = new Igel(10,15);
 		
 		
-		Lebenswesen[] igelFeld = new Tier[ 10 ];
+		Tier[] igelFeld = new Tier[ 10 ];
 		
-		DBFeldFixgen<Lebenswesen> igelDB = new DBFeldFixgen<Lebenswesen>(igelFeld);
+		DBFeldFixgen<Tier> igelDB = new DBFeldFixgen<Tier>(igelFeld);
 		igelDB.appendLast(gf);
 		igelDB.appendLast(k);
 		igelDB.appendLast(i1);
