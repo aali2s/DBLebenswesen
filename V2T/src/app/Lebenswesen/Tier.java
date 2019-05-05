@@ -1,6 +1,8 @@
 package app.Lebenswesen;
 
-public class Tier extends Lebenswesen {
+
+
+public class Tier extends Lebenswesen{
 	private int size;
 	private int weight;
 
@@ -22,12 +24,16 @@ public class Tier extends Lebenswesen {
 		return this.weight;
 	}
 
-	public static <T> T getLarger(T t1, T t2) {
+	public <T extends Tier> T getLarger(T t1, T t2) {
 		return t1;
 	}
+
 
 	public String toString() {
 		return "this Tier has size: " + this.size() + " and weight: " + this.weight();
 	}
+
+
+
 
 }

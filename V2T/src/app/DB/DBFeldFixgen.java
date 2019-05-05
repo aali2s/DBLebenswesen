@@ -1,7 +1,8 @@
 package app.DB;
 
-import app.Lebenswesen.*;
+import java.util.Iterator;
 
+import app.Lebenswesen.*;
 
 public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	T[] dBFeldFixgenArray;
@@ -13,15 +14,15 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 		return dBFeldFixgenArray;
 	}
 
-
 	/**
 	 * Default Constructor
-	 * @param igelFeld 
+	 * 
+	 * @param igelFeld
 	 */
 
 	public DBFeldFixgen(T[] igelFeld) {
 		this.dBFeldFixgenArray = igelFeld;
-		this.size=0;
+		this.size = 0;
 	}
 
 	@Override
@@ -30,6 +31,36 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 		// TODO: What if index is out of bound ?
 
 		return dBFeldFixgenArray[i - 1];
+
+	}
+
+	public T maxWeightnonit() {
+		T t1;
+		T t2;
+		T maxWeightTier = this.get(1);
+
+		for (int i = 1; i < this.size() ; i++) {
+
+			t1 = this.get(i);
+			t2 = this.get(i + 1);
+			
+			if (i == this.size() ) {
+				break;
+			}
+
+			if (t1.weight() <= t2.weight() && maxWeightTier.weight() <= t2.weight()) {
+				maxWeightTier = t2;
+				System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
+						+ maxWeightTier.weight());
+
+			}
+			System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
+					+ maxWeightTier.weight());
+
+		}
+
+		System.out.println("max weight Tier is " + maxWeightTier.weight());
+		return maxWeightTier;
 
 	}
 
@@ -49,11 +80,10 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	@Override
 	public void appendLast(T o) {
 		try {
-			this.dBFeldFixgenArray[ this.size() ] = o;
+			this.dBFeldFixgenArray[this.size()] = o;
 			this.size = this.size() + 1;
-		}
-		catch ( ArrayIndexOutOfBoundsException e ) {
-			System.out.println( "FEHLER: t konnte nicht eingefuegt werden (Indexfehler) " + e.getMessage());			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("FEHLER: t konnte nicht eingefuegt werden (Indexfehler) " + e.getMessage());
 		}
 	}
 

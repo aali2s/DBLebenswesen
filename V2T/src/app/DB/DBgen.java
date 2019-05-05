@@ -1,10 +1,12 @@
 package app.DB;
 
 import app.Interface.DBIFgen;
+import app.Lebenswesen.Tier;
 
-public abstract class DBgen<T> implements DBIFgen<T> {
+public abstract class DBgen<T> implements DBIFgen<T>  {
 
     protected int size;
+
 
     @Override
     public boolean isEmpty() {
@@ -20,6 +22,12 @@ public abstract class DBgen<T> implements DBIFgen<T> {
         // TODO Auto-generated method stub
         return this.size;
     }
+
+
+
+
+		
+	
     
     public String toString() {
     	return "is DB empty?  "+isEmpty()+" size is "+ size;

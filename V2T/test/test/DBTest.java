@@ -5,6 +5,7 @@ import app.Lebenswesen.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 class DBTest {
@@ -13,7 +14,7 @@ class DBTest {
 	
 
 
-	@Test
+	@Ignore
 	void katzeInIgelTest() {
 	
 		//Aufgabe 8.2 
@@ -41,7 +42,7 @@ class DBTest {
 		
 	}
 
-	@Test
+	@Ignore
 	void testAsTierDB() {
 		//Aufgabe 8.3 and 8.4
 		Goldfisch gf = new Goldfisch(10,15);
@@ -65,8 +66,7 @@ class DBTest {
 		igelDB.removeLast();
 		assertEquals(2, igelDB.size());
 	}
-	
-	@SuppressWarnings("static-access")
+	@Ignore
 	void testGetLargerReturnType() {
 		
 		Tier t = new Tier();
@@ -90,10 +90,39 @@ class DBTest {
 		
 		
 		//testing if by putting string and Int we get String
-		assertEquals("lol", t.getLarger("lol", 4.));
+		//assertEquals("lol", t.getLarger("lol", 4.));
 		
 		
 	}
+	@Test
+	void testMaxWeightnonit() {
+	
+		
+		Igel i1 = new Igel(10,15);
+		Igel i2 = new Igel(13,18);
+		Igel i3 = new Igel(10,15);
+		Igel i4 = new Igel(10,19);
+		
+		Tier[] igelFeld = new Tier[ 4];
+		
+		DBFeldFixgen<Tier> dB = new DBFeldFixgen<Tier>(igelFeld);
+		dB.appendLast(i1);
+		dB.appendLast(i2);
+		dB.appendLast(i3);
+		dB.appendLast(i4);
+		
+		
+		
+		
+		//System.out.println(dB.maxWeightnonit());
+		assertEquals(i4.weight(), dB.maxWeightnonit().weight());
+		
+		
+		
+		
+		
+	}
+	
 	
 	 
 	

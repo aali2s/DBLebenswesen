@@ -2,7 +2,6 @@ package app.DB;
 
 import app.Lebenswesen.*;
 
-
 public class DBTiere<T extends Tier> extends DBFeldFixgen<T> {
 
 	public DBTiere(T[] igelFeld) {
@@ -20,8 +19,10 @@ public class DBTiere<T extends Tier> extends DBFeldFixgen<T> {
 				totalWeight += lb.weight();
 
 		}
+
 		return totalWeight;
 	}
 
-}
 
+
+}
