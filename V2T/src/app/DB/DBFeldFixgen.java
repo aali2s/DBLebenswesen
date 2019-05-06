@@ -39,27 +39,22 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 		T t2;
 		T maxWeightTier = this.get(1);
 
-		for (int i = 1; i < this.size() ; i++) {
+		for (int i = 1; i < this.size(); i++) {
 
 			t1 = this.get(i);
 			t2 = this.get(i + 1);
-			
-			if (i == this.size() ) {
+
+			if (i == this.size()) {
 				break;
 			}
 
 			if (t1.weight() <= t2.weight() && maxWeightTier.weight() <= t2.weight()) {
 				maxWeightTier = t2;
-//				System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
-//						+ maxWeightTier.weight());
 
 			}
-//			System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
-//					+ maxWeightTier.weight());
 
 		}
 
-//		System.out.println("max weight Tier is " + maxWeightTier.weight());
 		return maxWeightTier;
 
 	}
@@ -125,6 +120,12 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 			out += i + 1 + ": " + dBFeldFixgenArray[i] + "\n";
 		}
 		return out;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return new DbIterator<T>(dBFeldFixgenArray);
 	}
 
 }

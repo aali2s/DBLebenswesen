@@ -3,7 +3,7 @@ package app.DB;
 import app.Interface.DBIFgen;
 import app.Lebenswesen.Tier;
 
-public abstract class DBgen<T> implements DBIFgen<T>  {
+public abstract class DBgen<T> implements DBIFgen<T>, Iterable {
 
     protected int size;
 
