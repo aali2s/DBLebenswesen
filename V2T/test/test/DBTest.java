@@ -14,7 +14,7 @@ class DBTest {
 	
 
 
-	@Ignore
+	@Test
 	void katzeInIgelTest() {
 	
 		//Aufgabe 8.2 
@@ -42,7 +42,7 @@ class DBTest {
 		
 	}
 
-	@Ignore
+	@Test
 	void testAsTierDB() {
 		//Aufgabe 8.3 and 8.4
 		Goldfisch gf = new Goldfisch(10,15);
@@ -66,7 +66,7 @@ class DBTest {
 		igelDB.removeLast();
 		assertEquals(2, igelDB.size());
 	}
-	@Ignore
+	@Test
 	void testGetLargerReturnType() {
 		
 		Tier t = new Tier();
@@ -116,6 +116,10 @@ class DBTest {
 		
 		//System.out.println(dB.maxWeightnonit());
 		assertEquals(i4.weight(), dB.maxWeightnonit().weight());
+		assertEquals(dB.get(1),i1 );
+		assertEquals(dB.get(2),i2 );
+		assertEquals(dB.get(3),i3 );
+		assertEquals(i4,dB.get(4) );
 		
 		
 		

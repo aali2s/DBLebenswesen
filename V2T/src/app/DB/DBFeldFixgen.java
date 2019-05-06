@@ -27,7 +27,7 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 
 	@Override
 	public T get(int i) {
-		System.out.println("element at " + i + " Position" + dBFeldFixgenArray[i - 1]);
+//		System.out.println("element at " + i + " Position" + dBFeldFixgenArray[i - 1]);
 		// TODO: What if index is out of bound ?
 
 		return dBFeldFixgenArray[i - 1];
@@ -50,16 +50,16 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 
 			if (t1.weight() <= t2.weight() && maxWeightTier.weight() <= t2.weight()) {
 				maxWeightTier = t2;
-				System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
-						+ maxWeightTier.weight());
+//				System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
+//						+ maxWeightTier.weight());
 
 			}
-			System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
-					+ maxWeightTier.weight());
+//			System.out.println(t1.weight() + " t1 and " + t2.weight() + " t2" + " Now max tier has weight of "
+//					+ maxWeightTier.weight());
 
 		}
 
-		System.out.println("max weight Tier is " + maxWeightTier.weight());
+//		System.out.println("max weight Tier is " + maxWeightTier.weight());
 		return maxWeightTier;
 
 	}
