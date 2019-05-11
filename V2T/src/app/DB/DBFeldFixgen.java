@@ -6,6 +6,8 @@ import app.Lebenswesen.*;
 
 public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	T[] dBFeldFixgenArray;
+	
+
 
 	/**
 	 * @return the dBFeldFixgenArray
@@ -125,6 +127,15 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	@Override
 	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
+		
+		return new DbIterator<T>(dBFeldFixgenArray);
+	}
+
+
+	public Iterator<T> iterator(int a, int e) {
+		// TODO Auto-generated method stub
+		this.setAnfangIt(a);
+		this.setEndIt(e);
 		return new DbIterator<T>(dBFeldFixgenArray);
 	}
 

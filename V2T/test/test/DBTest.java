@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 class DBTest {
 
-	@Test
+	@Ignore
 	void katzeInIgelTest() {
 
 		// Aufgabe 8.2
@@ -39,7 +39,7 @@ class DBTest {
 
 	}
 
-	@Test
+	@Ignore
 	void testAsTierDB() {
 		// Aufgabe 8.3 and 8.4
 		Goldfisch gf = new Goldfisch(10, 15);
@@ -63,7 +63,7 @@ class DBTest {
 		assertEquals(2, igelDB.size());
 	}
 
-	@Test
+	@Ignore
 	void testGetLargerReturnType() {
 
 		Tier t = new Tier();
@@ -106,7 +106,12 @@ class DBTest {
 		dB.appendLast(i2);
 		dB.appendLast(i3);
 		dB.appendLast(i4);
-//		Iterator<Tier> I = dB.iterator();
+		Iterator<Tier> I = dB.iterator();
+		
+		
+		
+		
+		
 		// System.out.println(dB.maxWeightnonit());
 		assertEquals(i4.weight(), dB.maxWeightnonit().weight());
 		assertEquals(dB.get(1), i1);
@@ -114,12 +119,52 @@ class DBTest {
 		assertEquals(dB.get(3), i3);
 		assertEquals(i4, dB.get(4));
 		
-		
-		
-//		System.out.println(I.next().size() +" - " + I.next().weight() );
-//		System.out.println(I.next().size() +" - " + I.next().weight() );
-//		System.out.println(I.next().size() +" - " + I.next().weight() );
+		Tier t1 = I.next();
+		Tier t2 = I.next();
+		Tier t3 = I.next();
+		Tier t4 = I.next();
+		System.out.println(" size is : " + t1.size() + " weight is : " + t1.weight());
+		System.out.println(" size is : " + t2.size() + " weight is : " + t2.weight());
+		System.out.println(" size is : " + t3.size() + " weight is : " + t3.weight());
+		System.out.println(" size is : " + t4.size() + " weight is : " + t4.weight());
+		assertEquals(i1, t1);
+		assertEquals(i2, t2);
+		assertEquals(i3, t3);
+		assertEquals(i4, t4);
+
 	
+	}
+	@Test
+	void cutomIteratorTest() {
+		
+		Igel i1 = new Igel(11, 15);
+		Igel i2 = new Igel(12, 18);
+		Igel i3 = new Igel(13, 19);
+		Igel i4 = new Igel(14, 20);
+		Igel i5 = new Igel(15, 21);
+		Igel i6 = new Igel(16, 22);
+
+		Tier[] igelFeld = new Tier[6];
+
+		DBFeldFixgen<Tier> dB = new DBFeldFixgen<Tier>(igelFeld);
+
+		dB.appendLast(i1);
+		dB.appendLast(i2);
+		dB.appendLast(i3);
+		dB.appendLast(i4);
+		dB.appendLast(i5);
+		dB.appendLast(i6);
+		
+		Iterator<Tier> I2 = dB.iterator(3, 5);
+		Tier t3 = I2.next();
+		Tier t4 = I2.next();
+		Tier t5 = I2.next();
+		
+		assertEquals(i3, t3);
+		assertEquals(i4, t4);
+		assertEquals(i5, t5);
+		
+		
 	}
 
 }

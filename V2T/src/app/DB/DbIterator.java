@@ -8,16 +8,16 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 
 	public DbIterator(T[] igelFeld) {
 		super(igelFeld);
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	private int current = 1;
-
+	//private int current =1;
+	
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
 
-		if (current < this.size()) {
+		if (this.getAnfangIt() < this.getEndIt()) {
 			
 			return true;
 		}
@@ -30,8 +30,10 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 		try {
 			
 			T t;
-			t = this.get(current);
-			this.current++;
+			int tmp;
+			tmp = this.getAnfangIt();
+			t = this.get(tmp);
+			this.setAnfangIt(tmp+1);
 			return t;
 
 		} catch (Exception e) {
