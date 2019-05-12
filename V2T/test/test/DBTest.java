@@ -90,7 +90,7 @@ class DBTest {
 
 	}
 
-	@Test
+	@Ignore
 	void testMaxWeightnonit() {
 
 		Igel i1 = new Igel(11, 15);
@@ -155,16 +155,32 @@ class DBTest {
 		dB.appendLast(i5);
 		dB.appendLast(i6);
 		
-		Iterator<Tier> I2 = dB.iterator(3,5);
-		Tier t3 = I2.next();
-		Tier t4 = I2.next();
-		Tier t5 = I2.next();
+//		Iterator<Tier> I2 = dB.iterator(3,5);
+//		Tier t3 = I2.next();
+//		Tier t4 = I2.next();
+//		Tier t5 = I2.next();
+//		I2.next();
+//		//Tier t7 = I2.next();
+//		
+//		assertEquals(i3, t3);
+//		assertEquals(i4, t4);
+//		assertEquals(i5, t5);
 		
-		assertEquals(i3, t3);
-		assertEquals(i4, t4);
-		assertEquals(i5, t5);
+		//System.out.println("size of 7th is : "+t7.size());
 		
+		//Testing reverse Iterator
+		Iterator<Tier> I3 = dB.iterator(5,3);
+		Tier I35 = I3.next();
+		Tier I34 = I3.next();
+		Tier I33 = I3.next();
 		
+		//Tier t7 = I2.next();
+		
+		assertEquals(i5, I35);
+		assertEquals(i4, I34);
+		assertEquals(i3, I33);
+		
+	
 	}
 
 }

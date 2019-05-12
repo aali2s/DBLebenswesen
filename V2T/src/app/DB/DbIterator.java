@@ -16,6 +16,13 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 
 	}
 
+	public DbIterator(T[] igelFeld, int startIndex) {
+		this(igelFeld);
+		this.startIndex = startIndex;
+		this.lastIndex = this.size;
+
+	}
+
 	public DbIterator(T[] igelFeld) {
 		super(igelFeld);
 		this.startIndex = 1;
@@ -39,17 +46,23 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 
 	@Override
 	public T next() {
-		try {
-			
-			T t;
-			t = this.get(startIndex);
-			this.startIndex++;
-			return t;
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			throw new IndexOutOfBoundsException();
+		if(lastIndex>startIndex) {
+			T t;
+		t = this.get(startIndex);
+		this.startIndex++;
+		return t;
+		}else {
+			return(reverse());
 		}
+
+	}
+	public T reverse() {
+
+		T t;
+		t = this.get(this.startIndex);
+		this.startIndex--;
+		return t;
 
 	}
 
