@@ -6,19 +6,31 @@ import app.Lebenswesen.Tier;
 
 public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Iterator<T> {
 
-	public DbIterator(T[] igelFeld) {
-		super(igelFeld);
-		
+	private int startIndex;
+	private int lastIndex;
+
+	public DbIterator(T[] igelFeld, int startIndex, int lastIndex) {
+		this(igelFeld);
+		this.startIndex = startIndex;
+		this.lastIndex = lastIndex;
+
 	}
 
-	//private int current =1;
-	
+	public DbIterator(T[] igelFeld) {
+		super(igelFeld);
+		this.startIndex = 1;
+		this.lastIndex = this.size;
+
+	}
+
+	// private int current =1;
+
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
 
-		if (this.getAnfangIt() < this.getEndIt()) {
-			
+		if (this.startIndex < this.lastIndex) {
+
 			return true;
 		}
 
@@ -30,10 +42,8 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 		try {
 			
 			T t;
-			int tmp;
-			tmp = this.getAnfangIt();
-			t = this.get(tmp);
-			this.setAnfangIt(tmp+1);
+			t = this.get(startIndex);
+			this.startIndex++;
 			return t;
 
 		} catch (Exception e) {

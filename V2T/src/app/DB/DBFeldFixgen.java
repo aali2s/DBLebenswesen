@@ -130,13 +130,13 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 		
 		return new DbIterator<T>(dBFeldFixgenArray);
 	}
-
-
-	public Iterator<T> iterator(int a, int e) {
+	public Iterator<T> iterator(int a, int b) {
 		// TODO Auto-generated method stub
-		this.setAnfangIt(a);
-		this.setEndIt(e);
-		return new DbIterator<T>(dBFeldFixgenArray);
+		
+		return new DbIterator<T>(dBFeldFixgenArray, a,b);
 	}
+
+
+
 
 }

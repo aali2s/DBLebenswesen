@@ -155,7 +155,7 @@ class DBTest {
 		dB.appendLast(i5);
 		dB.appendLast(i6);
 		
-		Iterator<Tier> I2 = dB.iterator(3, 5);
+		Iterator<Tier> I2 = dB.iterator(3,5);
 		Tier t3 = I2.next();
 		Tier t4 = I2.next();
 		Tier t5 = I2.next();
