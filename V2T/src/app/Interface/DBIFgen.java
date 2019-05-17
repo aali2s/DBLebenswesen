@@ -5,7 +5,7 @@ package app.Interface;
  *
  * @param <T>
  */
-public interface DBIFgen<T>{
+public interface DBIFgen<T> extends Iterable<T>{
 	
 	boolean isEmpty();
 

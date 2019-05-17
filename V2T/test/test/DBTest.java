@@ -107,18 +107,14 @@ class DBTest {
 		dB.appendLast(i3);
 		dB.appendLast(i4);
 		Iterator<Tier> I = dB.iterator();
-		
-		
-		
-		
-		
+
 		// System.out.println(dB.maxWeightnonit());
 		assertEquals(i4.weight(), dB.maxWeightnonit().weight());
 		assertEquals(dB.get(1), i1);
 		assertEquals(dB.get(2), i2);
 		assertEquals(dB.get(3), i3);
 		assertEquals(i4, dB.get(4));
-		
+
 		Tier t1 = I.next();
 		Tier t2 = I.next();
 		Tier t3 = I.next();
@@ -132,11 +128,11 @@ class DBTest {
 		assertEquals(i3, t3);
 		assertEquals(i4, t4);
 
-	
 	}
-	@Test
+
+	@Ignore
 	void cutomIteratorTest() {
-		
+
 		Igel i1 = new Igel(11, 15);
 		Igel i2 = new Igel(12, 18);
 		Igel i3 = new Igel(13, 19);
@@ -154,7 +150,7 @@ class DBTest {
 		dB.appendLast(i4);
 		dB.appendLast(i5);
 		dB.appendLast(i6);
-		
+
 //		Iterator<Tier> I2 = dB.iterator(3,5);
 //		Tier t3 = I2.next();
 //		Tier t4 = I2.next();
@@ -165,22 +161,45 @@ class DBTest {
 //		assertEquals(i3, t3);
 //		assertEquals(i4, t4);
 //		assertEquals(i5, t5);
-		
-		//System.out.println("size of 7th is : "+t7.size());
-		
-		//Testing reverse Iterator
-		Iterator<Tier> I3 = dB.iterator(5,3);
+
+		// System.out.println("size of 7th is : "+t7.size());
+
+		// Testing reverse Iterator
+		Iterator<Tier> I3 = dB.iterator(5, 3);
 		Tier I35 = I3.next();
 		Tier I34 = I3.next();
 		Tier I33 = I3.next();
-		
-		//Tier t7 = I2.next();
-		
+
+		// Tier t7 = I2.next();
+
 		assertEquals(i5, I35);
 		assertEquals(i4, I34);
 		assertEquals(i3, I33);
-		
-	
+
+	}
+
+	@Test
+	void testMaxWeight() {
+		Igel i1 = new Igel(11, 15);
+		Igel i2 = new Igel(12, 18);
+		Igel i3 = new Igel(13, 19);
+		Igel i4 = new Igel(14, 20);
+
+		Tier[] igelFeld = new Tier[4];
+
+		DBFeldFixgen<Tier> dB = new DBFeldFixgen<Tier>(igelFeld);
+
+		dB.appendLast(i1);
+		dB.appendLast(i2);
+		dB.appendLast(i3);
+		dB.appendLast(i4);
+
+		Tier m = dB.maxWeight();
+		// False Test
+		//assertEquals(i3, m);
+
+		// Positive Test
+		assertEquals(i4, m);
 	}
 
 }

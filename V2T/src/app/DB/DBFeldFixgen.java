@@ -6,8 +6,6 @@ import app.Lebenswesen.*;
 
 public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	T[] dBFeldFixgenArray;
-	
-
 
 	/**
 	 * @return the dBFeldFixgenArray
@@ -59,6 +57,19 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 
 		return maxWeightTier;
 
+	}
+
+	public T maxWeight() {
+		T maxWeight = this.get(1);
+
+		for (T t : this.dBFeldFixgenArray) {
+
+			if (t.weight() > maxWeight.weight()) {
+				maxWeight = t;
+			}
+		}
+
+		return maxWeight;
 	}
 
 	@Override
@@ -127,20 +138,20 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	@Override
 	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
-		
+
 		return new DbIterator<T>(dBFeldFixgenArray);
 	}
+
 	public Iterator<T> iterator(int a, int b) {
 		// TODO Auto-generated method stub
-		
-		return new DbIterator<T>(dBFeldFixgenArray, a,b);
+
+		return new DbIterator<T>(dBFeldFixgenArray, a, b);
 	}
+
 	public Iterator<T> iterator(int start) {
 		// TODO Auto-generated method stub
-		
+
 		return new DbIterator<T>(dBFeldFixgenArray, start);
 	}
-
-
 
 }

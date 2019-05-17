@@ -22,6 +22,8 @@ public class DBTiere<T extends Tier> extends DBFeldFixgen<T> {
 
 		return totalWeight;
 	}
+	
+	
 
 
 
