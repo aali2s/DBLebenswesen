@@ -8,6 +8,10 @@ public abstract class Lebenswesen {
 	
 	abstract public int size();
 	abstract public int weight();
+	public int compareTo(Lebenswesen o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 		
 	

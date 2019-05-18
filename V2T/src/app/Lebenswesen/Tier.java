@@ -1,8 +1,6 @@
 package app.Lebenswesen;
 
-
-
-public class Tier extends Lebenswesen{
+public class Tier extends Lebenswesen implements Comparable<Tier> {
 	private int size;
 	private int weight;
 
@@ -28,12 +26,21 @@ public class Tier extends Lebenswesen{
 		return t1;
 	}
 
-
 	public String toString() {
 		return "this Tier has size: " + this.size() + " and weight: " + this.weight();
 	}
 
+	@Override
+	public int compareTo(Tier o) {
+		// TODO Auto-generated method stub
+		if (this.size < o.size) {
+			return 1;
+		} else if (this.size == o.size) {
+			return 0;
+		} else {
+			return -1;
+		}
 
-
+	}
 
 }
