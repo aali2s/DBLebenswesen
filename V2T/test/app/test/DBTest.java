@@ -1,4 +1,4 @@
-package test;
+package app.test;
 
 import app.DB.*;
 import app.Lebenswesen.*;
@@ -201,5 +201,6 @@ class DBTest {
 		// Positive Test
 		assertEquals(i4, m);
 	}
+	
 
 }

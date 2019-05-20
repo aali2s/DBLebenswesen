@@ -154,4 +154,11 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 		return new DbIterator<T>(dBFeldFixgenArray, start);
 	}
 
+	@Override
+	public int compareTo(T o) {
+		// TODO Auto-generated method stub
+		
+		return o.compareTo(o);
+	}
+
 }

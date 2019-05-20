@@ -2,7 +2,7 @@ package app.DB;
 
 import app.Interface.DBIFgen;
 
-public abstract class DBgen<T> implements DBIFgen<T>{
+public abstract class DBgen<T> implements DBIFgen<T>,Comparable<T>{
 
 	protected int size;
 
