@@ -1,5 +1,6 @@
 package app.DB;
 
+import java.util.Comparator;
 import java.util.Iterator;
 
 import app.Lebenswesen.Tier;
@@ -19,14 +20,14 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 	public DbIterator(T[] igelFeld, int startIndex) {
 		this(igelFeld);
 		this.startIndex = startIndex;
-		this.lastIndex = this.size;
+		this.lastIndex = this.size();
 
 	}
 
 	public DbIterator(T[] igelFeld) {
 		super(igelFeld);
 		this.startIndex = 1;
-		this.lastIndex = this.size;
+		this.lastIndex = this.size();
 
 	}
 
@@ -64,6 +65,18 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 		this.startIndex--;
 		return t;
 
+	}
+
+	@Override
+	public int compareTo(T o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void sort(Comparator<T> c) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

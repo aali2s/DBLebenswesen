@@ -1,6 +1,6 @@
 package app.Lebenswesen;
 
-public class Tier extends Lebenswesen implements Comparable<Tier> {
+public abstract class Tier extends Lebenswesen implements Comparable<Tier> {
 	private int size;
 	private int weight;
 
@@ -22,7 +22,7 @@ public class Tier extends Lebenswesen implements Comparable<Tier> {
 		return this.weight;
 	}
 
-	public <T extends Tier> T getLarger(T t1, T t2) {
+	public static <T extends Tier> T getLarger(T t1, T t2) {
 		return t1;
 	}
 
@@ -31,16 +31,6 @@ public class Tier extends Lebenswesen implements Comparable<Tier> {
 	}
 
 	@Override
-	public int compareTo(Tier o) {
-		// TODO Auto-generated method stub
-		if (this.size < o.size) {
-			return 1;
-		} else if (this.size == o.size) {
-			return 0;
-		} else {
-			return -1;
-		}
-
-	}
+	public abstract int compareTo(Tier o) ;
 
 }

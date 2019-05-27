@@ -1,8 +1,11 @@
 package app.DB;
 
-import app.Interface.DBIFgen;
+import java.util.Comparator;
 
-public abstract class DBgen<T> implements DBIFgen<T>,Comparable<T>{
+import app.Interface.DBIFgen;
+import app.Lebenswesen.Tier;
+
+public abstract class DBgen<T> implements DBIFgen<T>, Comparable<T> {
 
 	protected int size;
 
@@ -25,5 +28,11 @@ public abstract class DBgen<T> implements DBIFgen<T>,Comparable<T>{
 	public String toString() {
 		return "is DB empty?  " + isEmpty() + " size is " + size;
 	}
+
+	public abstract void sort(Comparator<Tier> c);
+
+
+
+	
 
 }

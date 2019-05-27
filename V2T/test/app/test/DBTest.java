@@ -6,7 +6,9 @@ import app.Lebenswesen.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Random;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
@@ -65,25 +67,23 @@ class DBTest {
 
 	@Ignore
 	void testGetLargerReturnType() {
-
-		Tier t = new Tier();
-		@SuppressWarnings("unused")
+	
 		Goldfisch gf = new Goldfisch(10, 15);
 		@SuppressWarnings("unused")
-		Amsel a = new Amsel(10, 15);
-		Katze k = new Katze(10, 15);
-		Igel i1 = new Igel(10, 15);
+		Goldfisch a = new Goldfisch(10, 15);
+		Goldfisch k = new Goldfisch(10, 15);
+		Goldfisch i1 = new Goldfisch(10, 15);
 		@SuppressWarnings("unused")
-		Igel i2 = new Igel(11, 112);
+		Goldfisch i2 = new Goldfisch(11, 112);
 
 		// testing if by putting 2 Igels we get first igel
-		assertEquals(i1, t.getLarger(i1, i1));
+		assertEquals(i1, Tier.getLarger(i1, i1));
 
 		// testing if by putting igel and cat we get igel
-		assertEquals(i1, t.getLarger(i1, k));
+		assertEquals(i1, Tier.getLarger(i1, k));
 
 		// testing if by putting cat and igel we get cat
-		assertEquals(k, t.getLarger(k, i1));
+		assertEquals(k, Tier.getLarger(k, i1));
 
 		// testing if by putting string and Int we get String
 		// assertEquals("lol", t.getLarger("lol", 4.));
@@ -180,26 +180,57 @@ class DBTest {
 
 	@Test
 	void testMaxWeight() {
-		Igel i1 = new Igel(11, 15);
-		Igel i2 = new Igel(12, 18);
-		Igel i3 = new Igel(13, 19);
-		Igel i4 = new Igel(14, 20);
+//		Igel i1 = new Igel(11, 15);
+//		Igel i2 = new Igel(12, 18);
+//		Igel i3 = new Igel(13, 19);
+//		Igel i4 = new Igel(14, 20);
+//
+//		Tier[] igelFeld = new Tier[4];
+//		
+//		
+//		igelFeld[1] = i1;
+//		igelFeld[0] = i2;
+//		igelFeld[2] = i3;
+//		igelFeld[3] = i4;
+//
+//		DBFeldFixgen<Tier> dB = new DBFeldFixgen<Tier>(igelFeld);
+//
+//		
+//
+//
+//		
+//		Tier t = DBUtil.min(dB);
+//		System.out.println(t.size());
+//		assertEquals(i1, t);
+		
+		Tier[] igelFeld = new Tier[500];
 
-		Tier[] igelFeld = new Tier[4];
-
+		for (int i = 0; i <= 499; i++) {
+			Igel i1 = new Igel(randomInRange(1,11),randomInRange(20, 45));
+			if (i1.weight() == 10) {
+				System.out.println("True");
+			}
+			igelFeld[i] = i1;
+	}
 		DBFeldFixgen<Tier> dB = new DBFeldFixgen<Tier>(igelFeld);
-
-		dB.appendLast(i1);
-		dB.appendLast(i2);
-		dB.appendLast(i3);
-		dB.appendLast(i4);
-
-		Tier m = dB.maxWeight();
-		// False Test
-		//assertEquals(i3, m);
-
-		// Positive Test
-		assertEquals(i4, m);
+		
+		//Tier t = DBUtil.min(dB);
+		//assertEquals(5, t.size());
+		Comparator<Tier> c = new ComparatorSize();
+		dB.sort(c);
+		Iterator<Tier> i = dB.iterator();
+		for(; i.hasNext();) {
+			Igel ig = (Igel) i.next();
+			System.out.println(ig.size()+ " - " + ig.weight());
+		}
+		 
+		
+		
+	}
+	private static int randomInRange(int i, int j) {
+		Random rand = new Random();
+		int r = rand.nextInt((j - i) + 1) + i;
+		return r;
 	}
 	
 

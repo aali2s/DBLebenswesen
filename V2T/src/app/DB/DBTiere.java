@@ -22,9 +22,13 @@ public class DBTiere<T extends Tier> extends DBFeldFixgen<T> {
 
 		return totalWeight;
 	}
-	
-	
 
-
+	/**
+	 * 
+	 */
+	@Override
+	public int compareTo(T o) {
+		return this.compareTo(o);
+	}
 
 }

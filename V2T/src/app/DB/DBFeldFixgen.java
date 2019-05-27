@@ -1,5 +1,6 @@
 package app.DB;
 
+import java.util.Comparator;
 import java.util.Iterator;
 
 import app.Lebenswesen.*;
@@ -22,7 +23,7 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 
 	public DBFeldFixgen(T[] igelFeld) {
 		this.dBFeldFixgenArray = igelFeld;
-		this.size = 0;
+		this.size = igelFeld.length;
 	}
 
 	@Override
@@ -137,28 +138,51 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 
 	@Override
 	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-
 		return new DbIterator<T>(dBFeldFixgenArray);
 	}
 
 	public Iterator<T> iterator(int a, int b) {
-		// TODO Auto-generated method stub
-
 		return new DbIterator<T>(dBFeldFixgenArray, a, b);
 	}
 
 	public Iterator<T> iterator(int start) {
-		// TODO Auto-generated method stub
-
 		return new DbIterator<T>(dBFeldFixgenArray, start);
 	}
 
 	@Override
 	public int compareTo(T o) {
-		// TODO Auto-generated method stub
-		
+
 		return o.compareTo(o);
+	}
+
+	@Override
+	public void sort(Comparator<Tier> c) {
+
+		T[] nDB = dBFeldFixgenArray.clone();
+		for(int i = 0; i<this.size;i++) {
+			System.out.println("size of " + " Tier is : " + dBFeldFixgenArray[i].weight());
+		}
+
+		for (int i = 0; i < this.size; i++) {
+
+			T t = dBFeldFixgenArray[i];
+
+			for (int j = i; j < this.size; j++) {
+				
+				if (c.compare(dBFeldFixgenArray[j], t) == -1) {
+					T tmp = t;
+					t = dBFeldFixgenArray[j];
+					dBFeldFixgenArray[j] = tmp;
+				
+				}
+			}
+			nDB[i] = t;
+			System.out.println("nDB Element "+ nDB[i].weight());
+		}
+		this.dBFeldFixgenArray = nDB;
+
+		System.out.println("Sorted");
+
 	}
 
 }
