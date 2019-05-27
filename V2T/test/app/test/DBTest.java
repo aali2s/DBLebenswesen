@@ -196,11 +196,10 @@ class DBTest {
 
 		Tier m = dB.maxWeight();
 		// False Test
-		//assertEquals(i3, m);
+		// assertEquals(i3, m);
 
 		// Positive Test
 		assertEquals(i4, m);
 	}
-	
 
 }

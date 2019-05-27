@@ -157,7 +157,7 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 	@Override
 	public int compareTo(T o) {
 		// TODO Auto-generated method stub
-		
+
 		return o.compareTo(o);
 	}
 
