@@ -73,10 +73,6 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 		return 0;
 	}
 
-	@Override
-	public void sort(Comparator<T> c) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
