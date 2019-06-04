@@ -10,7 +10,7 @@ public class DbIterator<T extends Tier> extends DBFeldFixgen<T> implements Itera
 	private int startIndex;
 	private int lastIndex;
 
-	public DbIterator(T[] igelFeld, int startIndex, int lastIndex) {
+	public DbIterator(T[] igelFeld, int startIndex, int lastIndex) { 
 		this(igelFeld);
 		this.startIndex = startIndex;
 		this.lastIndex = lastIndex;
