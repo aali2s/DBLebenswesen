@@ -35,30 +35,24 @@ public class DBFeldFixgen<T extends Tier> extends DBgen<T> {
 
 	}
 
-	public T maxWeightnonit() {
-		T t1;
-		T t2;
-		T maxWeightTier = this.get(1);
-
-		for (int i = 1; i < this.size(); i++) {
-
-			t1 = this.get(i);
-			t2 = this.get(i + 1);
-
-			if (i == this.size()) {
-				break;
-			}
-
-			if (t1.weight() <= t2.weight() && maxWeightTier.weight() <= t2.weight()) {
-				maxWeightTier = t2;
-
-			}
-
-		}
-
-		return maxWeightTier;
-
-	}
+	public static <T> Tier maxWeightnonit(T t) {
+        	Tier[] tiers = new Tier[((DBIFGeneric<T>) t).size()];
+		
+        	for (int i = 0; i < tiers.length; i++) {
+            		tiers[i] = (Tier) ((DBIFGeneric<T>) t).removeLast();
+        	}
+		
+        	Tier maxWeight = tiers[0];
+		
+        	for (int i = 0; i < tiers.length; i++) {
+            		((DBIFGeneric<T>) t).appendLast((T) tiers[i]);
+            		if (i > 0 && tiers[i].weight() > maxWeight.weight()) {
+                		maxWeight = tiers[i];
+            		}
+        	}
+		
+        	return maxWeight;
+    	}
 
 	public T maxWeight() {
 		T maxWeight = this.get(1);
